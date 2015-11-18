@@ -21,8 +21,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //Test Retain Cycle
     self.testView = [TestView new];
     self.testView.controller = self;
+}
+
+//Test PARAMETER_NOT_NULL_CHECKED
+- (void)filter:(BOOL (^)(id value))block
+{
+    if (block(@1)) {
+        NSLog(@"");
+    }
 }
 
 - (void)didReceiveMemoryWarning {
